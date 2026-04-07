@@ -1,0 +1,97 @@
+#include <iostream>
+using namespace std;
+
+void checkMap(int map[5][5]) {
+
+    for (int i = 0; i < 5; i++) {
+        bool allZero = true, allOne = true;
+
+        for (int j = 0; j < 5; j++) {
+            if (map[i][j] != 0) allZero = false;
+            if (map[i][j] != 1) allOne = false;
+        }
+
+        if (allZero || allOne) {
+            cout << "Row " << i << " is all "
+                 << (allZero ? 0 : 1) << endl;
+        }
+    }
+
+    for (int j = 0; j < 5; j++) {
+        bool allZero = true, allOne = true;
+
+        for (int i = 0; i < 5; i++) {
+            if (map[i][j] != 0) allZero = false;
+            if (map[i][j] != 1) allOne = false;
+        }
+
+        if (allZero || allOne) {
+            cout << "Column " << j << " is all "
+                 << (allZero ? 0 : 1) << endl;
+        }
+    }
+
+    for (int start = 0; start < 5; start++) {
+        int i = start, j = 0;
+        bool allZero = true, allOne = true;
+
+        while (i < 5 && j < 5) {
+            if (map[i][j] != 0) allZero = false;
+            if (map[i][j] != 1) allOne = false;
+            i++; j++;
+        }
+
+        if (allZero || allOne) {
+            cout << "Diagonal ↘ starting at (" << start << ",0) is all "
+                 << (allZero ? 0 : 1) << endl;
+        }
+    }
+
+    for (int start = 1; start < 5; start++) {
+        int i = 0, j = start;
+        bool allZero = true, allOne = true;
+
+        while (i < 5 && j < 5) {
+            if (map[i][j] != 0) allZero = false;
+            if (map[i][j] != 1) allOne = false;
+            i++; j++;
+        }
+
+        if (allZero || allOne) {
+            cout << "Diagonal ↘ starting at (0," << start << ") is all "
+                 << (allZero ? 0 : 1) << endl;
+        }
+    }
+
+    for (int start = 0; start < 5; start++) {
+        int i = start, j = 4;
+        bool allZero = true, allOne = true;
+
+        while (i < 5 && j >= 0) {
+            if (map[i][j] != 0) allZero = false;
+            if (map[i][j] != 1) allOne = false;
+            i++; j--;
+        }
+
+        if (allZero || allOne) {
+            cout << "Diagonal ↙ starting at (" << start << ",4) is all "
+                 << (allZero ? 0 : 1) << endl;
+        }
+    }
+
+    for (int start = 3; start >= 0; start--) {
+        int i = 0, j = start;
+        bool allZero = true, allOne = true;
+
+        while (i < 5 && j >= 0) {
+            if (map[i][j] != 0) allZero = false;
+            if (map[i][j] != 1) allOne = false;
+            i++; j--;
+        }
+
+        if (allZero || allOne) {
+            cout << "Diagonal ↙ starting at (0," << start << ") is all "
+                 << (allZero ? 0 : 1) << endl;
+        }
+    }
+}
