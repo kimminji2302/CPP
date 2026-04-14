@@ -1,0 +1,16 @@
+MyTime
+-------------------
+- hour : int
+- minute : int
+- second : int
+- millisecond : int
+-------------------
++ convert(double)
++ print()
++ add(MyTime) : MyTime
++ reset()
+
+구조체에서는 데이터를 함수에 전달해서 처리했지만,
+클래스에서는 객체 내부의 데이터를 직접 사용한다.
+그래서 매개변수가 줄어들고 코드가 더 간단해진다.
+또한 t1.add(t2)처럼 객체 중심으로 사용할 수 있어서 가독성이 좋아진다.
